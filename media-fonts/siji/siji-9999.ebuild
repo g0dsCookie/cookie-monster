@@ -9,7 +9,7 @@ DESCRIPTION="An iconic bitmap font based on Stlarch with additional glyphs."
 HOMEPAGE="https://github.com/stark/siji"
 EGIT_REPO_URI="https://github.com/stark/siji.git"
 
-LICENSE="GPL-2.0"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="plugins"
