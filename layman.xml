@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+	<repo quality="experimental" status="unofficial">
+		<name>cookie-monster</name>
+		<description lang="en">g0dsCookie's overlay for Gentoo ebuilds</description>
+		<homepage>https://github.com/g0dsCookie/cookie-monster</homepage>
+		<owner type="person">
+			<email>g0dscookie@cookieprojects.de</email>
+			<name>Steven Dürl</name>
+		</owner>
+		<source type="git">https://github.com/g0dsCookie/cookie-monster.git</source>
+		<feed>https://github.com/g0dsCookie/cookie-monster/commits/master.atom</feed>
+	</repo>
+</repositories>
