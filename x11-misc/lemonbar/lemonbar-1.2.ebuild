@@ -31,4 +31,3 @@ src_install() {
 	dobin lemonbar
 	doman lemonbar.1
 }
-
