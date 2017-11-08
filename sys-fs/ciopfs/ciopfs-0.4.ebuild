@@ -14,12 +14,10 @@ IUSE="icu"
 
 DEPEND="
 	sys-apps/attr
-	sys-fs/fuse
+	sys-fs/fuse:*
 	icu? ( dev-libs/icu )
 "
 RDEPEND="${DEPEND}"
-
-WORKDIR="${WORKDIR}/ciopfs-${PV}"
 
 src_compile() {
 	if use icu; then
@@ -27,10 +25,9 @@ src_compile() {
 	else
 		emake ciopfs
 	fi
-	strip -s ciopfs
 }
 
 src_install() {
 	dobin ciopfs
-	dosym /usr/bin/ciopfs /usr/bin/mount.ciopfs
+	dosym ciopfs /usr/bin/mount.ciopfs
 }
