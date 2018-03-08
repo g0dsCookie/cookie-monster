@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -20,7 +20,7 @@ else
 fi
 inherit golang-build
 
-DESCRIPTION="gopbo is a free and open source tool to (un)pack/validate PBO files written in Go."
+DESCRIPTION="gopbo is used to (un)pack/validate PBO files."
 HOMEPAGE="https://github.com/g0dsCookie/gopbo"
 
 LICENSE="MIT"
