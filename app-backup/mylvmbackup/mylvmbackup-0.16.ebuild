@@ -1,6 +1,7 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+
+EAPI=6
 
 DESCRIPTION="mylvmbackup quickly creates backups of MySQL server's data using LVM snapshots"
 HOMEPAGE="http://lenzg.net/mylvmbackup/"
@@ -10,25 +11,27 @@ SLOT="0"
 KEYWORDS="amd64 ~ppc ~x86"
 IUSE=""
 DEPEND=""
-RDEPEND="dev-perl/Config-IniFiles
-        >=sys-fs/lvm2-2.02.06
-        dev-perl/DBD-mysql
-        dev-perl/File-Copy-Recursive
-        virtual/mysql
-        dev-perl/TimeDate"
+RDEPEND="
+	dev-perl/Config-IniFiles
+	>=sys-fs/lvm2-2.02.06
+	dev-perl/DBD-mysql
+	dev-perl/File-Copy-Recursive
+	virtual/mysql
+	dev-perl/TimeDate
+"
 RESTRICT="mirror"
 
-src_unpack() {
-    unpack ${A}
-    sed -i \
-        -e '/^prefix/s,/usr/local,/usr,' \
-        "${S}"/Makefile
-    sed -i 's|mycnf=/etc/my.cnf|mycnf=/etc/mysql/my.cnf|' "${S}"/mylvmbackup.conf
+src_prepare() {
+	sed -i \
+		-e '/^prefix/s,/usr/local,/usr,' \
+		"${S}"/Makefile
+	sed -i 's|mycnf=/etc/my.cnf|mycnf=/etc/mysql/my.cnf|' "${S}"/mylvmbackup.conf
+	eapply_user
 }
 
 src_install() {
-    emake install DESTDIR="${D}" mandir="/usr/share/man" || die
-    dodoc ChangeLog README TODO
-    keepdir /var/tmp/${PN}/{backup,mnt}
-    fperms 0700 /var/tmp/${PN}/
+	emake install DESTDIR="${D}" mandir="/usr/share/man" || die
+	dodoc ChangeLog README TODO
+	keepdir /var/tmp/${PN}/{backup,mnt}
+	fperms 0700 /var/tmp/${PN}/
 }
