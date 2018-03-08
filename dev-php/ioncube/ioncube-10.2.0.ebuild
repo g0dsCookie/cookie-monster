@@ -90,7 +90,7 @@ pkg_postinst() {
 }
 
 src_prepare() {
-	:
+	eapply_user
 }
 
 src_configure() {
