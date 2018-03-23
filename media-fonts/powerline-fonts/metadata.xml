@@ -9,7 +9,6 @@
 		<flag name="anonymouspro">install Anonymous Pro font</flag>
 		<flag name="arimo">install Arimo font</flag>
 		<flag name="cousine">install Cousine font</flag>
-		<flag name="d2coding">install D2Coding font</flag>
 		<flag name="dejavu">install DejaVu Sans Mono font</flag>
 		<flag name="droid">install Droid Sans Mono font</flag>
 		<flag name="droiddotted">install Droid Sans Mono Dotted font</flag>
