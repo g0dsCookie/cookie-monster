@@ -4,8 +4,8 @@
 EAPI=6
 
 DESCRIPTION="Command-Line Interface for the KDE Wallet"
-HOMEPAGE="www.mirbsd.org/kwalletcli.htm"
-SRC_URI="http://www.mirbsd.org/MirOS/dist/hosted/kwalletcli/${P}.tar.gz"
+HOMEPAGE="https://www.mirbsd.org/kwalletcli.htm"
+SRC_URI="https://www.mirbsd.org/MirOS/dist/hosted/kwalletcli/${P}.tar.gz"
 
 LICENSE="MirOS"
 SLOT="0"
