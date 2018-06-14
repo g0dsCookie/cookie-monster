@@ -1,0 +1,26 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+INSTANCE="${SVCNAME##*.}"
+if [[ -z "${INSTANCE}" ]]; then
+	INSTANCE="telegraf"
+fi
+
+confdir="/etc/telegraf"
+errlog="/var/log/telegraf/${INSTANCE}.log"
+
+command="/usr/bin/telegraf"
+command_args="-config ${confdir}/${INSTANCE}.conf
+	-config-directory ${confdir}/${INSTANCE}.d
+	${EXTRA_OPTS:-}"
+command_background="yes"
+command_user="telegraf:telegraf"
+make_pidfile=yes
+pidfile="/var/run/telegraf/${INSTANCE}.pid"
+
+start_pre() {
+	checkpath -d -m 0750 -o ${command_user} $(dirname ${pidfile})
+	return $?
+}
+
