@@ -4,4 +4,7 @@
         <maintainer type="person">
                 <email>g0dscookie@cookieprojects.de</email>
         </maintainer>
+        <use>
+            <flag name="flarectl">Install the flarectl command line tool</flag>
+        </use>
 </pkgmetadata>
