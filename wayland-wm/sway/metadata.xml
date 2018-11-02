@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>g0dscookie@cookieprojects.de</email>
+	</maintainer>
+	<use>
+		<flag name="logind">Enable support for rootless session via logind (elogind|systemd)</flag>
+		<flag name="elogind">Use sys-auth/elogind as provider for logind</flag>
+		<flag name="systemd">Use sys-apps/systemd as provider for logind</flag>
+		<flag name="wallpaper">Install the default wallpapers</flag>
+		<flag name="zsh-completions">Install zsh shell completions</flag>
+		<flag name="bash-completions">Install bash shell completions</flag>
+		<flag name="fish-completions">Install fish shell completions</flag>
+		<flag name="xwayland">Enable support for X11 applications</flag>
+	</use>
+</pkgmetadata>
