@@ -13,17 +13,13 @@ SRC_URI="https://github.com/swaywm/sway/archive/${MY_VER}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="+xwayland logind elogind systemd wallpaper zsh-completions bash-completions fish-completions"
-REQUIRED_USE="
-	logind? ( ^^ ( elogind systemd ) )
-	elogind? ( logind )
-	systemd? ( logind )
-"
+IUSE="elogind systemd wallpaper zsh-completions bash-completions fish-completions X"
+REQUIRED_USE="?? ( elogind systemd )"
 
 DEPEND="
 	>=dev-libs/json-c-0.13
 	dev-libs/libpcre
-	dev-libs/wlroots[logind?,elogind?,systemd?,xwayland?]
+	dev-libs/wlroots[elogind?,systemd?]
 	dev-libs/wayland
 	>=dev-libs/wayland-protocols-1.14
 	>=dev-libs/libinput-1.6
@@ -31,9 +27,12 @@ DEPEND="
 	>=sys-apps/dbus-1.10
 	x11-libs/pango
 	x11-libs/cairo
-	x11-libs/gdk-pixbuf:2
+	x11-libs/gdk-pixbuf:2=
 	virtual/pam
-	xwayland? ( x11-libs/libxcb )
+	X? (
+		dev-libs/wlroots[X]
+		x11-libs/libxcb:0=
+	)
 "
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -49,7 +48,7 @@ src_configure() {
 		-Dzsh-completions=$(usex zsh-completions true false)
 		-Dbash-completions=$(usex bash-completions true false)
 		-Dfish-completions=$(usex fish-completions true false)
-		-Denable-xwayland=$(usex xwayland true false)
+		-Denable-xwayland=$(usex X true false)
 	)
 	meson_src_configure
 }
@@ -57,7 +56,7 @@ src_configure() {
 src_install() {
 	meson_src_install
 
-	if ! use logind; then
+	if ! use elogind && ! use systemd; then
 		ewarn "Sway has been installed without logind support (elogind/systemd)"
 		ewarn "The sway binary will be setuid."
 		fperms 4711 /usr/bin/sway
