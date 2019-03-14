@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>g0dscookie@cookieprojects.de</email>
+    </maintainer>
+    <use>
+        <flag name="gnome">Enable gnome support</flag>
+        <flag name="cinnamon">Enable cinnamon support</flag>
+        <flag name="flashback">Enable flashback support</flag>
+        <flag name="xfce">Enable xfce support</flag>
+        <flag name="mate">Enable mate support</flag>
+        <flag name="openbox">Enable openbox support</flag>
+        <flag name="chrome-legacy">Enable support for legacy chrome/chromium (older than 59.0.30xx)</flag>
+    </use>
+</pkgmetadata>
