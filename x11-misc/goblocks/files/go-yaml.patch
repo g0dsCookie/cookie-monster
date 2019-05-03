@@ -1,0 +1,13 @@
+diff --git a/src/github.com/davidscholberg/goblocks/lib/modules/configure.go b/src/github.com/davidscholberg/goblocks/lib/modules/configure.go
+index e81e2e0..645ab99 100644
+--- a/src/github.com/davidscholberg/goblocks/lib/modules/configure.go
++++ b/src/github.com/davidscholberg/goblocks/lib/modules/configure.go
+@@ -10,7 +10,7 @@ import (
+ 	"time"
+ 
+ 	"github.com/davidscholberg/go-i3barjson"
+-	"gopkg.in/yaml.v2"
++	"github.com/go-yaml/yaml"
+ )
+ 
+ // Block contains all functions and objects necessary to configure and update
