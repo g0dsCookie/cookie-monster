@@ -32,6 +32,7 @@ RDEPEND="${DEPEND}"
 BDEPEND=""
 
 DOCS=(README.md CHANGELOG.md LICENSE)
+PATCHES=("${FILESDIR}/fix-udev-path.patch")
 
 src_configure() {
 	local mycmakeargs=(
