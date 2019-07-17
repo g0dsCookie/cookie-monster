@@ -1,0 +1,51 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ba427a7..2b2c9f4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -18,7 +18,7 @@ endif()
+ 
+ set(CURA_APP_NAME "cura" CACHE STRING "Short name of Cura, used for configuration folder")
+ set(CURA_APP_DISPLAY_NAME "Ultimaker Cura" CACHE STRING "Display name of Cura")
+-set(CURA_VERSION "master" CACHE STRING "Version name of Cura")
++set(CURA_VERSION "4.1.0" CACHE STRING "Version name of Cura")
+ set(CURA_BUILDTYPE "" CACHE STRING "Build type of Cura, eg. 'PPA'")
+ set(CURA_SDK_VERSION "" CACHE STRING "SDK version of Cura")
+ set(CURA_CLOUD_API_ROOT "" CACHE STRING "Alternative Cura cloud API root")
+@@ -46,6 +46,15 @@ else()
+     find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
+ endif()
+ 
++if(NOT PYTHON_SITE_PACKAGES_DIR)
++    if(APPLE OR WIN32)
++        set(PYTHON_SITE_PACKAGES_DIR lib/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages
++            CACHE STRING "Directory to install Python bindings to")
++    else()
++        set(PYTHON_SITE_PACKAGES_DIR lib/python${PYTHON_VERSION_MAJOR}/dist-packages
++            CACHE STRING "Directory to install Python bindings to")
++    endif()
++endif()
+ 
+ if(NOT ${URANIUM_DIR} STREQUAL "")
+     set(CMAKE_MODULE_PATH "${URANIUM_DIR}/cmake")
+@@ -63,7 +72,7 @@ endif()
+ install(DIRECTORY resources
+         DESTINATION ${CMAKE_INSTALL_DATADIR}/cura)
+ install(DIRECTORY plugins
+-        DESTINATION lib${LIB_SUFFIX}/cura)
++        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cura)
+ 
+ if(NOT APPLE AND NOT WIN32)
+     install(FILES cura_app.py
+@@ -78,10 +87,10 @@ if(NOT APPLE AND NOT WIN32)
+             DESTINATION lib${LIB_SUFFIX}/python${Python3_VERSION_MAJOR}/dist-packages/cura)
+     else()
+         install(DIRECTORY cura
+-            DESTINATION lib${LIB_SUFFIX}/python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}/site-packages
++            DESTINATION ${PYTHON_SITE_PACKAGES_DIR}
+             FILES_MATCHING PATTERN *.py)
+         install(FILES ${CMAKE_BINARY_DIR}/CuraVersion.py
+-            DESTINATION lib${LIB_SUFFIX}/python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}/site-packages/cura)
++            DESTINATION ${PYTHON_SITE_PACKAGES_DIR})
+     endif()
+     install(FILES ${CMAKE_BINARY_DIR}/cura.desktop
+             DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
