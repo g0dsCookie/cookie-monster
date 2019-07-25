@@ -1,0 +1,13 @@
+#!/sbin/openrc-run
+# Copyright 2019 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="xrdp"
+description="Remote Desktop Protocol server"
+pidfile=/var/run/xrdp.pid
+command=/usr/sbin/xrdp
+command_args="-p ${PORT:-3389}"
+
+depend() {
+	need net
+}

@@ -1,0 +1,12 @@
+#!/sbin/openrc-run
+# Copyright 2019 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="xrdp-sesman"
+description="RDP sesson manager"
+pidfile=/var/run/xrdp-sesman.pid
+command=/usr/sbin/xrdp-sesman
+
+depend() {
+	need xrdp
+}
