@@ -1,0 +1,20 @@
+diff --git a/data/generate-piper-gresource.xml.py b/data/generate-piper-gresource.xml.py
+index 19bc43d..af12cac 100644
+--- a/data/generate-piper-gresource.xml.py
++++ b/data/generate-piper-gresource.xml.py
+@@ -1,4 +1,4 @@
+-#!/bin/python3
++#!/usr/bin/env python3
+ 
+ import sys
+ 
+diff --git a/data/svgs/check-svg.py b/data/svgs/check-svg.py
+index fafc3f2..f62ccea 100755
+--- a/data/svgs/check-svg.py
++++ b/data/svgs/check-svg.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python3
++#!/usr/bin/env python3
+ # vim: set expandtab shiftwidth=4 tabstop=4:
+ 
+ import os
