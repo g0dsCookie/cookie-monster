@@ -24,7 +24,7 @@ RDEPEND="${PYTHON_DEPS}
 	dev-python/PyQt5[${PYTHON_USEDEP},declarative,network,svg]
 	dev-python/numpy[${PYTHON_USEDEP}]
 	>=sci-libs/scipy-1.1[${PYTHON_USEDEP}]
-	sci-libs/Shapely[${PYTHON_USEDEP}]
+	>=sci-libs/Shapely-1.6[${PYTHON_USEDEP}]
 	dev-qt/qtquickcontrols:5
 	dev-qt/qtquickcontrols2:5"
 
