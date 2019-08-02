@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>g0dscookie@cookieprojects.de</email>
+	</maintainer>
+	<use>
+		<flag name="route53">Enable route53 support</flag>
+		<flag name="subreg">Enable subreg support</flag>
+		<flag name="plesk">Enable plesk support</flag>
+	</use>
+</pkgmetadata>
