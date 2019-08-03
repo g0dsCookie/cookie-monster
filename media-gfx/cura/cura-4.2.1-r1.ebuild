@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Authors
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -24,6 +24,7 @@ RDEPEND="${PYTHON_DEPS}
 	>=media-gfx/fdm-materials-${PV:0:3}
 	>=dev-libs/libsavitar-${PV:0:3}:=[python,${PYTHON_USEDEP}]
 	>=dev-libs/libcharon-${PV:0:3}[${PYTHON_USEDEP}]
+	dev-python/trimesh[extra]
 	usb? ( dev-python/pyserial[${PYTHON_USEDEP}] )
 	zeroconf? ( dev-python/zeroconf[${PYTHON_USEDEP}] )"
 
