@@ -1,17 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ba427a7..2b2c9f4 100644
+index b516de6..fb7660b 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -18,7 +18,7 @@ endif()
- 
- set(CURA_APP_NAME "cura" CACHE STRING "Short name of Cura, used for configuration folder")
- set(CURA_APP_DISPLAY_NAME "Ultimaker Cura" CACHE STRING "Display name of Cura")
--set(CURA_VERSION "master" CACHE STRING "Version name of Cura")
-+set(CURA_VERSION "4.1.0" CACHE STRING "Version name of Cura")
- set(CURA_BUILDTYPE "" CACHE STRING "Build type of Cura, eg. 'PPA'")
- set(CURA_SDK_VERSION "" CACHE STRING "SDK version of Cura")
- set(CURA_CLOUD_API_ROOT "" CACHE STRING "Alternative Cura cloud API root")
-@@ -46,6 +46,15 @@ else()
+@@ -47,6 +47,15 @@ else()
      find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
  endif()
  
@@ -27,7 +18,7 @@ index ba427a7..2b2c9f4 100644
  
  if(NOT ${URANIUM_DIR} STREQUAL "")
      set(CMAKE_MODULE_PATH "${URANIUM_DIR}/cmake")
-@@ -63,7 +72,7 @@ endif()
+@@ -64,7 +73,7 @@ endif()
  install(DIRECTORY resources
          DESTINATION ${CMAKE_INSTALL_DATADIR}/cura)
  install(DIRECTORY plugins
@@ -36,7 +27,7 @@ index ba427a7..2b2c9f4 100644
  
  if(NOT APPLE AND NOT WIN32)
      install(FILES cura_app.py
-@@ -78,10 +87,10 @@ if(NOT APPLE AND NOT WIN32)
+@@ -79,10 +88,10 @@ if(NOT APPLE AND NOT WIN32)
              DESTINATION lib${LIB_SUFFIX}/python${Python3_VERSION_MAJOR}/dist-packages/cura)
      else()
          install(DIRECTORY cura
@@ -45,7 +36,7 @@ index ba427a7..2b2c9f4 100644
              FILES_MATCHING PATTERN *.py)
          install(FILES ${CMAKE_BINARY_DIR}/CuraVersion.py
 -            DESTINATION lib${LIB_SUFFIX}/python${Python3_VERSION_MAJOR}.${Python3_VERSION_MINOR}/site-packages/cura)
-+            DESTINATION ${PYTHON_SITE_PACKAGES_DIR})
++            DESTINATION ${PYTHON_SITE_PACKAGES_DIR}/cura)
      endif()
      install(FILES ${CMAKE_BINARY_DIR}/cura.desktop
              DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
