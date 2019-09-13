@@ -3,11 +3,13 @@
 
 EAPI=7
 
-inherit git-r3
-EGIT_REPO_URI="https://github.com/ifduyue/python-xxhash.git"
-EGIT_SUBMODULES=()
-if [[ "${PV}" != "9999" ]]; then
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/ifduyue/python-xxhash.git"
+	EGIT_SUBMODULES=()
 	EGIT_COMMIT_DATE="${PV}"
+else
+	SRC_URI="https://github.com/ifduyue/${PN}/archive/v${PV}.tar.gz"
 	KEYWORDS="amd64 x86"
 fi
 
