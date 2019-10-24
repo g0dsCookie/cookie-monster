@@ -17,7 +17,7 @@ IUSE="pam ipv6 fuse jpeg aac opus lame pixman debug kerberos"
 DEPEND="
 	dev-libs/openssl:0=
 	x11-base/xorg-server
-	pam? ( virtual/pam )
+	pam? ( sys-libs/pam )
 	fuse? ( sys-fs/fuse:0= )
 	jpeg? ( virtual/jpeg )
 	aac? ( media-libs/fdk-aac )
